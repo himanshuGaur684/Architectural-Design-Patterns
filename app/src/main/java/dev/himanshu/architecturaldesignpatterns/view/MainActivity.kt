@@ -1,6 +1,7 @@
 package dev.himanshu.architecturaldesignpatterns.view
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
@@ -12,9 +13,16 @@ import dev.himanshu.architecturaldesignpatterns.model.CounterModelImpl
 
 class MainActivity : ComponentActivity(), CounterView {
 
-    // MVC
+    // Model
     private val model: CounterModel by lazy { CounterModelImpl() }
-    private val controller: CounterController by lazy { CounterControllerImpl(model, this) }
+
+    // Controller
+    private val controller: CounterController by lazy {
+        CounterControllerImpl(
+            model,
+            this
+        )
+    }
 
     // Views
     private val text by lazy { findViewById<TextView>(R.id.counter) }
@@ -29,9 +37,21 @@ class MainActivity : ComponentActivity(), CounterView {
         incrementButton.setOnClickListener { controller.onIncrementClicked() }
 
         decrementButton.setOnClickListener { controller.onDecrementClicked() }
+
     }
 
-    override fun showCounter(counter: Int) {
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+    override fun onRestoreInstanceState(
+        savedInstanceState: Bundle?,
+        persistentState: PersistableBundle?
+    ) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState)
+    }
+
+    override fun showText(counter: Int) {
         text.text = counter.toString()
     }
 }
