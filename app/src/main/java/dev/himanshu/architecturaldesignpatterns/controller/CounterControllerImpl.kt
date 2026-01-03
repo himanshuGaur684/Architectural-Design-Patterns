@@ -7,13 +7,14 @@ class CounterControllerImpl(
     private val model: CounterModel,
     private val view: CounterView
 ) : CounterController {
+
     override fun onIncrementClicked() {
         model.increment()
-        view.showCounter(model.getCounter())
+        view.showText(model.getCounter())
     }
 
     override fun onDecrementClicked() {
         model.decrement()
-        view.showCounter(model.getCounter())
+        view.showText(model.getCounter())
     }
 }

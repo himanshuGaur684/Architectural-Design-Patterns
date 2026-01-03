@@ -1,5 +1,6 @@
 package dev.himanshu.architecturaldesignpatterns.view
 
 interface CounterView {
-    fun showCounter(counter: Int)
+    fun showText(counter: Int)
+    
 }

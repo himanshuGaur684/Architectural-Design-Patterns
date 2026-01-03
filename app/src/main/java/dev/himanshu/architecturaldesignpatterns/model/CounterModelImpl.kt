@@ -12,6 +12,7 @@ class CounterModelImpl : CounterModel {
         counter--
     }
 
-    override fun getCounter(): Int = counter
-
+    override fun getCounter(): Int {
+        return counter
+    }
 }

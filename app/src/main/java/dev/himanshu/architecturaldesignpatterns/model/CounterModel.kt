@@ -5,4 +5,3 @@ interface CounterModel {
     fun decrement()
     fun getCounter(): Int
 }
-
