@@ -1,4 +1,4 @@
-package dev.himanshu.architecturaldesignpatterns.ui.theme
+package dev.himanshu.architecturaldesignpatterns.view.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
