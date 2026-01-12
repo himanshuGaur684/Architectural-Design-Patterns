@@ -2,7 +2,7 @@ package dev.himanshu.architecturaldesignpatterns.presenter
 
 import dev.himanshu.architecturaldesignpatterns.CounterContract
 
-class Presenter(
+class PresenterImpl(
     private val model: CounterContract.Model
 ) : CounterContract.Presenter {
 
@@ -17,13 +17,12 @@ class Presenter(
     }
 
     override fun onIncrementClicked() {
-        model.increment()
+        model.incrementCounter()
         view?.showCounter(model.getCounter())
     }
 
     override fun onDecrementClicked() {
-        model.decrement()
+        model.decrementCounter()
         view?.showCounter(model.getCounter())
     }
-
 }

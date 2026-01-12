@@ -7,17 +7,17 @@ interface CounterContract {
     }
 
     interface Model {
-        fun increment()
-        fun decrement()
+        fun incrementCounter()
+        fun decrementCounter()
         fun getCounter(): Int
     }
 
     interface Presenter {
+
         fun attach(view: View)
         fun detach()
 
         fun onIncrementClicked()
         fun onDecrementClicked()
     }
-
 }
